@@ -1,5 +1,6 @@
 import { LIMITS, PdfError, parseRange, validateFiles, kind, type Tool, type Input, type Output } from '../lib/pdf-common';
 import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import { pdfToWord } from '../lib/word';
 type PdfJs = typeof import('pdfjs-dist');
 type Entry = {file:File;bytes:Uint8Array;pages:number;rotation:number;preview:string};
 const root=document.querySelector<HTMLElement>('[data-workbench]');
@@ -94,7 +95,7 @@ function mount(root:HTMLElement){
  }
  async function addFiles(files:File[]){
   if(busy||!files.length)return;
-  const single=tool==='split'||tool==='export';
+  const single=tool==='split'||tool==='export'||tool==='word';
   try{if(single&&entries.length+files.length>1)throw new PdfError('onePdf');validateFiles([...entries.map(e=>e.file),...files]);}catch(e){showError(e);return;}
   clearResult();error.hidden=true;busy=true;const id=++job;update();setProgress(0,t('Preparando prévias…','Preparing previews…'));const staged:Entry[]=[];
   try{
@@ -159,6 +160,12 @@ function mount(root:HTMLElement){
   try{
    let output:Output;
    if(tool==='export')output=await exportImages(id);
+   else if(tool==='word'){
+    const lib=await getPdfJs();
+    const entry=entries[0];
+    const bytes=await pdfToWord(lib,entry.bytes,pdfOptions(entry.bytes),value=>setProgress(value,t('Extraindo texto e montando o Word…','Extracting text and building the Word file…')),()=>id!==job);
+    output={bytes,name:entry.file.name.replace(/\.pdf$/i,'')+'.docx',mime:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'};
+   }
    else{
     const inputs:Input[]=[];
     for(const entry of entries){if(id!==job)throw new PdfError('cancelled');inputs.push(tool==='images'?await normalizeImage(entry):{bytes:entry.bytes,name:entry.file.name,rotation:entry.rotation});}

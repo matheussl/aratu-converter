@@ -2,7 +2,7 @@
 import Icon from './Icon.astro';
 import{tools,href,pick,type Lang}from '../lib/content';
 interface Props{lang:Lang;tool:typeof tools[number]}
-const{lang,tool}=Astro.props;const image=tool.id==='images',single=tool.id==='split'||tool.id==='export';
+const{lang,tool}=Astro.props;const image=tool.id==='images',single=tool.id==='split'||tool.id==='export'||tool.id==='word';
 ---
 <section class="work-heading container"><a class="back-link" href={href(lang)}>← {pick(lang,'Todas as ferramentas','All tools')}</a><span class:list={['tool-icon',tool.color]}><Icon name={tool.icon} size={27}/></span><h1>{tool.title[lang]}</h1><p>{tool.desc[lang]}</p><div class="hero-trust"><Icon name="shield" size={16}/>{pick(lang,'Processamento local. Seus arquivos ficam com você.','Local processing. Your files stay with you.')}</div></section>
 <div class="workspace container" data-workbench data-tool={tool.id} data-lang={lang}>
@@ -24,7 +24,7 @@ const{lang,tool}=Astro.props;const image=tool.id==='images',single=tool.id==='sp
 </div>
 <div class="message error" role="alert" data-error hidden></div>
 <div class="progress-block" data-progress hidden><div><span data-status></span><span data-percent></span></div><progress max="100" value="0" aria-label={pick(lang,'Progresso','Progress')}></progress></div>
-<div class="work-actions"><button type="button" class="primary convert-button" data-run disabled>{tool.id==='merge'?pick(lang,'Juntar PDFs','Merge PDFs'):tool.id==='images'?pick(lang,'Criar PDF','Create PDF'):tool.id==='split'?pick(lang,'Separar páginas','Extract pages'):pick(lang,'Converter em imagens','Convert to images')}<Icon name="arrow" size={19}/></button><button type="button" class="secondary" data-cancel hidden>{pick(lang,'Cancelar','Cancel')}</button><span class="action-hint" data-hint>{pick(lang,'Selecione seus arquivos para começar.','Choose your files to get started.')}</span></div>
+<div class="work-actions"><button type="button" class="primary convert-button" data-run disabled>{tool.id==='merge'?pick(lang,'Juntar PDFs','Merge PDFs'):tool.id==='images'?pick(lang,'Criar PDF','Create PDF'):tool.id==='split'?pick(lang,'Separar páginas','Extract pages'):tool.id==='word'?pick(lang,'Converter para Word','Convert to Word'):pick(lang,'Converter em imagens','Convert to images')}<Icon name="arrow" size={19}/></button><button type="button" class="secondary" data-cancel hidden>{pick(lang,'Cancelar','Cancel')}</button><span class="action-hint" data-hint>{pick(lang,'Selecione seus arquivos para começar.','Choose your files to get started.')}</span></div>
 <section class="result" data-result hidden aria-live="polite"><span class="success-icon"><Icon name="check" size={25}/></span><div><h2>{pick(lang,'Pronto. Do seu jeito.','Done. Your way.')}</h2><p data-result-info></p><a class="primary download-button" data-download>{pick(lang,'Baixar resultado','Download result')} ↓</a></div></section>
 <div class="sr-only" role="status" aria-live="polite" data-live></div>
 </section>

@@ -1,5 +1,5 @@
 export const LIMITS = { fileBytes:20*1024**2,totalBytes:50*1024**2,files:20,pages:200,renderPages:50,pixels:12_000_000,outputBytes:100*1024**2 };
-export type Tool = 'merge'|'images'|'split'|'export';
+export type Tool = 'merge'|'images'|'split'|'export'|'word';
 export type Input = {bytes:Uint8Array;name:string;rotation:number};
 export type Options = {range:string;separate:boolean;paper:string;orientation:string};
 export type Output = {bytes:Uint8Array;name:string;mime:string};

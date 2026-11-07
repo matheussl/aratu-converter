@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Ferramentas locais de PDF — Aratu Converter.",
-  "engines": { "node": ">=22.23.4" },
+  "engines": {
+    "node": ">=22.23.4"
+  },
   "scripts": {
     "deploy:homologacao": "npm run build && wrangler pages deploy dist --project-name aratu-converter --branch homologacao",
     "predev": "node scripts/create-test-fixtures.mjs",
@@ -18,9 +20,10 @@
   },
   "dependencies": {
     "astro": "7.4.5",
+    "docx": "^9.5.1",
+    "fflate": "0.8.3",
     "pdf-lib": "1.17.1",
-    "pdfjs-dist": "6.5.438",
-    "fflate": "0.8.3"
+    "pdfjs-dist": "6.5.438"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
