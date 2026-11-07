@@ -1,0 +1,20 @@
+{
+  "source": "Google Trends public web endpoints; not the official alpha API",
+  "collectedAt": "2026-11-03T03:21:30.7841182Z",
+  "method": "Exact phrases; Web Search; category 0; fixed dates; anchor=100 within region. No absolute monthly volumes.",
+  "groups": [
+    {
+      "id": "detail-1",
+      "geo": "",
+      "time": "2025-11-02 2026-11-01",
+      "terms": [
+        "base64 decode",
+        "base64 encode",
+        "json to csv",
+        "json formatter",
+        "image to base64"
+      ],
+      "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+    }
+  ]
+}

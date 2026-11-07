@@ -1,0 +1,35 @@
+---
+import Icon from './Icon.astro';
+import{tools,href,pick,type Lang}from '../lib/content';
+interface Props{lang:Lang;tool:typeof tools[number]}
+const{lang,tool}=Astro.props;const image=tool.id==='images',single=tool.id==='split'||tool.id==='export';
+---
+<section class="work-heading container"><a class="back-link" href={href(lang)}>← {pick(lang,'Todas as ferramentas','All tools')}</a><span class:list={['tool-icon',tool.color]}><Icon name={tool.icon} size={27}/></span><h1>{tool.title[lang]}</h1><p>{tool.desc[lang]}</p><div class="hero-trust"><Icon name="shield" size={16}/>{pick(lang,'Processamento local. Seus arquivos ficam com você.','Local processing. Your files stay with you.')}</div></section>
+<div class="workspace container" data-workbench data-tool={tool.id} data-lang={lang}>
+<section class="work-panel" aria-label={pick(lang,'Arquivos e opções','Files and options')}>
+<div class="dropzone" data-drop>
+<span class="upload-icon"><Icon name="upload" size={28}/></span><h2>{image?pick(lang,'Suas imagens começam aqui','Start with your images'):pick(lang,'Seus PDFs começam aqui','Start with your PDFs')}</h2>
+<p>{pick(lang,'Arraste e solte ou selecione no dispositivo.','Drag and drop, or choose from your device.')}</p>
+<label class="primary upload-label">{image?pick(lang,'Selecionar imagens','Choose images'):single?pick(lang,'Selecionar PDF','Choose PDF'):pick(lang,'Selecionar PDFs','Choose PDFs')}<input data-input type="file" accept={image?'.jpg,.jpeg,.png':'application/pdf,.pdf'} multiple={!single}/></label>
+{import.meta.env.DEV && <button class="text-button" type="button" data-example>{pick(lang,'Testar com exemplo','Try with sample files')}</button>}
+<small>{image?'JPG, PNG':'PDF'} · {pick(lang,'até 20 MB por arquivo','up to 20 MB per file')}</small>
+</div>
+<div class="queue-heading" hidden data-queue-heading><h2>{pick(lang,'Seus arquivos','Your files')} <span data-count></span></h2><button type="button" class="text-button" data-clear>{pick(lang,'Limpar tudo','Clear all')}</button></div>
+<ol class="file-list" data-list aria-label={pick(lang,'Ordem dos arquivos','File order')}></ol>
+<div class="options" hidden data-options>
+{(tool.id==='split'||tool.id==='export')&&<div class="field"><label for="range">{pick(lang,'Quais páginas?','Which pages?')}</label><input id="range" name="range" placeholder={pick(lang,'Todas · ou ex.: 1-3, 5','All · or e.g. 1-3, 5')} aria-describedby="range-hint"/><small id="range-hint">{pick(lang,'Deixe vazio para todas. Use vírgulas e intervalos.','Leave blank for all. Use commas and ranges.')}</small></div>}
+{tool.id==='split'&&<div class="field"><label for="split-mode">{pick(lang,'Como salvar','Save as')}</label><select id="split-mode" name="separate"><option value="false">{pick(lang,'Um PDF com as páginas escolhidas','One PDF with selected pages')}</option><option value="true">{pick(lang,'Um PDF por página (ZIP)','One PDF per page (ZIP)')}</option></select></div>}
+{image&&<><div class="field"><label for="paper">{pick(lang,'Tamanho da página','Page size')}</label><select id="paper" name="paper"><option value="a4">A4</option><option value="original">{pick(lang,'Tamanho da imagem','Image size')}</option></select></div><div class="field"><label for="orientation">{pick(lang,'Orientação','Orientation')}</label><select id="orientation" name="orientation"><option value="auto">{pick(lang,'Automática','Automatic')}</option><option value="portrait">{pick(lang,'Retrato','Portrait')}</option><option value="landscape">{pick(lang,'Paisagem','Landscape')}</option></select></div></>}
+{tool.id==='export'&&<><div class="field"><label for="format">{pick(lang,'Formato','Format')}</label><select id="format" name="format"><option value="jpg">JPG</option><option value="png">PNG</option></select></div><div class="field"><label for="resolution">{pick(lang,'Resolução','Resolution')}</label><select id="resolution" name="resolution"><option value="72">{pick(lang,'Padrão · 72 dpi','Standard · 72 dpi')}</option><option value="144" selected>{pick(lang,'Nítida · 144 dpi','Sharp · 144 dpi')}</option><option value="216">{pick(lang,'Alta · 216 dpi','High · 216 dpi')}</option></select></div></>}
+</div>
+<div class="message error" role="alert" data-error hidden></div>
+<div class="progress-block" data-progress hidden><div><span data-status></span><span data-percent></span></div><progress max="100" value="0" aria-label={pick(lang,'Progresso','Progress')}></progress></div>
+<div class="work-actions"><button type="button" class="primary convert-button" data-run disabled>{tool.id==='merge'?pick(lang,'Juntar PDFs','Merge PDFs'):tool.id==='images'?pick(lang,'Criar PDF','Create PDF'):tool.id==='split'?pick(lang,'Separar páginas','Extract pages'):pick(lang,'Converter em imagens','Convert to images')}<Icon name="arrow" size={19}/></button><button type="button" class="secondary" data-cancel hidden>{pick(lang,'Cancelar','Cancel')}</button><span class="action-hint" data-hint>{pick(lang,'Selecione seus arquivos para começar.','Choose your files to get started.')}</span></div>
+<section class="result" data-result hidden aria-live="polite"><span class="success-icon"><Icon name="check" size={25}/></span><div><h2>{pick(lang,'Pronto. Do seu jeito.','Done. Your way.')}</h2><p data-result-info></p><a class="primary download-button" data-download>{pick(lang,'Baixar resultado','Download result')} ↓</a></div></section>
+<div class="sr-only" role="status" aria-live="polite" data-live></div>
+</section>
+<aside class="work-aside"><div class="aside-note"><span class="eyebrow">{pick(lang,'BOM SABER','GOOD TO KNOW')}</span><h2>{pick(lang,'Um passo de cada vez.','One step at a time.')}</h2><ol><li>{pick(lang,'Escolha seus arquivos.','Choose your files.')}</li><li>{single?pick(lang,'Selecione as páginas e ajuste as opções.','Select pages and adjust options.'):pick(lang,'Organize a ordem com as setas.','Arrange the order with the arrows.')}</li><li>{pick(lang,'Processe e baixe o resultado.','Process and download your result.')}</li></ol></div><div class="aside-limits"><h3>{pick(lang,'Limites desta versão','Limits in this version')}</h3><p>{pick(lang,'20 MB por arquivo · 50 MB no total. Até 20 arquivos e 200 páginas de PDF por operação.','20 MB per file · 50 MB total. Up to 20 files and 200 PDF pages per operation.')}</p>{tool.id==='export'&&<p>{pick(lang,'Exporte até 50 páginas por vez. Várias imagens são entregues em ZIP.','Export up to 50 pages at a time. Multiple images are delivered in a ZIP.')}</p>}<p>{pick(lang,'PDFs com senha não são aceitos. Formulários, anexos e assinaturas podem não ser preservados nas cópias.','Password-protected PDFs are not supported. Forms, attachments and signatures may not be preserved in copies.')}</p></div></aside>
+</div>
+<section class="more-tools container"><h2>{pick(lang,'Mais uma coisa para resolver?','One more thing to do?')}</h2><div>{tools.filter(t=>t.id!==tool.id).map(t=><a href={href(lang,t)}><Icon name={t.icon} size={18}/>{t.title[lang]}<span>↗</span></a>)}</div></section>
+<script>import '../scripts/workbench';</script>
+

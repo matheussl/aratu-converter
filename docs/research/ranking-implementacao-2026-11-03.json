@@ -1,0 +1,433 @@
+{
+  "date": "2026-11-03",
+  "status": "recommendation_not_approved_MVP",
+  "method": "Editorial priority: demand, correctness/feasibility, reuse and operating cost; effort estimates not benchmarked. No inferred revenue or SEO difficulty score.",
+  "sources": [
+    {
+      "name": "iLovePDF",
+      "url": "https://www.ilovepdf.com/",
+      "observed": "PDF/Office, juntar, dividir, comprimir, OCR e PDF→Markdown."
+    },
+    {
+      "name": "Smallpdf",
+      "url": "https://smallpdf.com/",
+      "observed": "Conversão, juntar, comprimir, editar e assinar PDF."
+    },
+    {
+      "name": "Adobe Acrobat",
+      "url": "https://www.adobe.com/acrobat/online.html",
+      "observed": "PDF/Office, imagens→PDF, extração, organização e OCR."
+    },
+    {
+      "name": "FreeConvert",
+      "url": "https://www.freeconvert.com/",
+      "observed": "HEIC/AVIF/JFIF, SVG/ICO, GIF, áudio/vídeo e compressores."
+    },
+    {
+      "name": "CloudConvert",
+      "url": "https://cloudconvert.com/",
+      "observed": "Documentos, imagens, mídia, arquivos, ebooks, CAD e fontes."
+    },
+    {
+      "name": "Convertio",
+      "url": "https://convertio.co/formats/",
+      "observed": "Catálogo de formatos com distinção de leitura e escrita."
+    },
+    {
+      "name": "Zamzar",
+      "url": "https://www.zamzar.com/",
+      "observed": "Conversões, texto de imagem/áudio/vídeo, compactação e extração de áudio."
+    },
+    {
+      "name": "Online-Convert",
+      "url": "https://www.online-convert.com/",
+      "observed": "Mídia, documentos, imagens, OCR, compactados, CAD e fontes."
+    },
+    {
+      "name": "AConvert",
+      "url": "https://www.aconvert.com/",
+      "observed": "PDF, documentos, ebooks, imagens, mídia e arquivos compactados."
+    },
+    {
+      "name": "iLoveIMG",
+      "url": "https://www.iloveimg.com/",
+      "observed": "Compressão, dimensões, recorte, conversão e remoção de fundo."
+    },
+    {
+      "name": "ConvertCSV",
+      "url": "https://www.convertcsv.com/",
+      "observed": "CSV/JSON/XML/YAML/HTML, tabelas e validação."
+    },
+    {
+      "name": "CyberChef",
+      "url": "https://gchq.github.io/CyberChef/",
+      "observed": "Base64, bytes, datas, codificações e operações encadeadas."
+    },
+    {
+      "name": "ezyZip",
+      "url": "https://www.ezyzip.com/convert-rar-to-zip.html",
+      "observed": "RAR→ZIP e processamento declarado no navegador."
+    }
+  ],
+  "ranking": [
+    {
+      "rank": 1,
+      "name": "Juntar PDF",
+      "terms": [
+        "merge pdf"
+      ],
+      "effort": "Baixo–médio",
+      "reason": "Procura muito forte no Brasil, presente no mundo e aproveitamento do mesmo motor de páginas PDF.",
+      "gate": "Validar preservação de páginas, metadados, formulários e arquivos protegidos.",
+      "stage": "Primeira entrega"
+    },
+    {
+      "rank": 2,
+      "name": "JPG/PNG → PDF",
+      "terms": [
+        "jpg to pdf"
+      ],
+      "effort": "Baixo–médio",
+      "reason": "Maior referência global entre os pacotes iniciais; combina bem com juntar PDF. PNG é extensão funcional proposta, ainda sem medição própria nesta rodada.",
+      "gate": "Validar ordem, orientação, proporção, tamanho da página e qualidade.",
+      "stage": "Primeira entrega"
+    },
+    {
+      "rank": 3,
+      "name": "PDF → JPG/PNG",
+      "terms": [
+        "pdf to jpg"
+      ],
+      "effort": "Médio",
+      "reason": "Demanda expressiva e uso do mesmo núcleo PDF/imagens. PNG ainda não teve medição específica bem-sucedida nesta rodada.",
+      "gate": "Validar renderização, resolução e limites de páginas/memória.",
+      "stage": "Primeira entrega"
+    },
+    {
+      "rank": 4,
+      "name": "Dividir, extrair e girar páginas de PDF",
+      "terms": [
+        "split pdf",
+        "extract pdf pages",
+        "rotate pdf"
+      ],
+      "effort": "Baixo–médio",
+      "reason": "Busca medida por dividir e grande reaproveitamento do motor de juntar. Extração é adjacência; sua frase isolada ficou abaixo da resolução.",
+      "gate": "Distinguir dividir todas as páginas, intervalos e remoção.",
+      "stage": "Primeira entrega"
+    },
+    {
+      "rank": 5,
+      "name": "Redimensionar e recortar imagens",
+      "terms": [
+        "resize image",
+        "crop image"
+      ],
+      "effort": "Baixo",
+      "reason": "Demanda em ambos os mercados e infraestrutura reutilizável pelas conversões de imagem.",
+      "gate": "Validar proporção, dimensões, transparência e orientação.",
+      "stage": "Expansão do núcleo"
+    },
+    {
+      "rank": 6,
+      "name": "PNG ↔ JPG e WebP → JPG/PNG",
+      "terms": [
+        "png to jpg",
+        "jpg to png",
+        "webp to jpg",
+        "webp to png"
+      ],
+      "effort": "Baixo–médio",
+      "reason": "Pacote coerente de pares medidos com ampla reutilização técnica.",
+      "gate": "Explicitar perda de transparência/qualidade e suporte real.",
+      "stage": "Expansão do núcleo"
+    },
+    {
+      "rank": 7,
+      "name": "Comprimir JPG/PNG/WebP",
+      "terms": [
+        "image compressor",
+        "compress jpg",
+        "compress png"
+      ],
+      "effort": "Médio",
+      "reason": "Demanda e reutilização de imagem; alvo em KB pode diferenciar a tarefa, mas não teve keyword própria medida.",
+      "gate": "Não prometer tamanho exato preservando qualidade ou compressão com ganho em todo arquivo.",
+      "stage": "Expansão do núcleo"
+    },
+    {
+      "rank": 8,
+      "name": "HEIC → JPG/PNG",
+      "terms": [
+        "heic to jpg",
+        "heic to png"
+      ],
+      "effort": "Médio–alto",
+      "reason": "Demanda destacada em imagem e crescimento relativo no histórico; introduz um decodificador específico.",
+      "gate": "Prova técnica de fidelidade, orientação, imagens grandes, iPhone/Android e memória.",
+      "stage": "Após prova técnica"
+    },
+    {
+      "rank": 9,
+      "name": "Comprimir PDF",
+      "terms": [
+        "compress pdf"
+      ],
+      "effort": "Alto",
+      "reason": "Demanda importante, especialmente no Brasil; antecipar a investigação técnica.",
+      "gate": "Produzir redução real mensurável. Regravar ou rasterizar tudo pode não reduzir e pode perder texto pesquisável.",
+      "stage": "Após prova técnica"
+    },
+    {
+      "rank": 10,
+      "name": "Imagem → texto (OCR)",
+      "terms": [
+        "image to text",
+        "ocr pdf"
+      ],
+      "effort": "Médio–alto",
+      "reason": "Nova família encontrada nos concorrentes; OCR de imagem pode abrir caminho para documentos escaneados.",
+      "gate": "Medir precisão PT/EN, rotação, resolução e desempenho. PDF exige etapa adicional, não é suporte automático do Tesseract.js.",
+      "stage": "Após prova técnica"
+    },
+    {
+      "rank": 11,
+      "name": "PDF → texto / Markdown",
+      "terms": [
+        "pdf to text",
+        "pdf to markdown"
+      ],
+      "effort": "Médio–alto",
+      "reason": "Texto simples pode reaproveitar leitura de PDF; Markdown fiel exige reconstruir estrutura.",
+      "gate": "Separar PDF textual de escaneado e texto simples de preservação de tabelas/layout.",
+      "stage": "Expansão documental"
+    },
+    {
+      "rank": 12,
+      "name": "Base64 e JSON formatter",
+      "terms": [
+        "base64 decode",
+        "base64 encode",
+        "json formatter",
+        "image to base64",
+        "base64 to image"
+      ],
+      "effort": "Baixo–médio",
+      "reason": "Menor demanda que documentos, mas ferramentas úteis e de implementação curta; podem ser adiantadas se não atrasarem o núcleo.",
+      "gate": "UTF-8/binário, arquivos grandes, validação e nenhuma transmissão do conteúdo.",
+      "stage": "Complemento enxuto"
+    },
+    {
+      "rank": 13,
+      "name": "MP4 → MP3",
+      "terms": [
+        "mp4 to mp3"
+      ],
+      "effort": "Alto",
+      "reason": "Par de mídia mais interessante entre arquivos enviados; viabilidade depende de codecs e limites.",
+      "gate": "Testar celulares, duração, memória, cancelamento e se há extração ou transcodificação.",
+      "stage": "Nova frente de mídia"
+    },
+    {
+      "rank": 14,
+      "name": "M4A/WAV/MP3 e outros áudios",
+      "terms": [
+        "m4a to mp3",
+        "wav to mp3",
+        "mp3 to wav",
+        "flac to mp3",
+        "opus to mp3",
+        "ogg to mp3",
+        "aac to mp3"
+      ],
+      "effort": "Alto",
+      "reason": "Expansão do motor de mídia após MP4→MP3; várias frases menores ficaram sem resolução.",
+      "gate": "Não afirmar suporte sem testar codec e contêiner.",
+      "stage": "Nova frente de mídia"
+    },
+    {
+      "rank": 15,
+      "name": "SVG → PNG, PNG → ICO e formatos adicionais de imagem",
+      "terms": [
+        "svg to png",
+        "png to ico",
+        "avif to jpg",
+        "jfif to jpg",
+        "tiff to jpg",
+        "bmp to jpg"
+      ],
+      "effort": "Médio",
+      "reason": "Adjacências de imagem com demanda menor; adequadas após o núcleo.",
+      "gate": "Sanitização, fontes, rasterização e tamanhos reais de ICO. AVIF/TIFF podem precisar de decodificador próprio; PNG/ICO/JFIF não comprovam suporte a todos os demais formatos.",
+      "stage": "Cauda longa de imagem"
+    },
+    {
+      "rank": 16,
+      "name": "Binário/decimal/hex e URL encoding",
+      "terms": [
+        "binary to decimal",
+        "decimal to binary",
+        "hex to decimal",
+        "binary to text",
+        "url encode",
+        "url decode"
+      ],
+      "effort": "Baixo–médio",
+      "reason": "Complementos técnicos pequenos; não justificar semanas de catálogo antes do núcleo.",
+      "gate": "Largura, sinal, Unicode, precisão de inteiros e escapes inválidos.",
+      "stage": "Complemento técnico"
+    },
+    {
+      "rank": 17,
+      "name": "JSON/CSV/XML/YAML",
+      "terms": [
+        "json to csv",
+        "csv to json",
+        "xml to json",
+        "json to yaml",
+        "yaml to json",
+        "xml to csv",
+        "html to markdown"
+      ],
+      "effort": "Médio",
+      "reason": "Família confirmada nos concorrentes; dados atuais são fracos na escala escolhida.",
+      "gate": "Reavaliar demanda com referência menor; definir arrays, hierarquias, tipos e CSV.",
+      "stage": "Após nova medição"
+    },
+    {
+      "rank": 18,
+      "name": "PDF → Word",
+      "terms": [
+        "pdf to word"
+      ],
+      "effort": "Muito alto",
+      "reason": "Maior demanda entre as frases globais medidas; posição é de entrega sob a restrição de simplicidade, não de interesse.",
+      "gate": "Investigar desde já, em paralelo à especificação. Só avançar na entrega após prova de fidelidade, OCR quando necessário e custo.",
+      "stage": "Pesquisa antecipada; entrega condicionada"
+    },
+    {
+      "rank": 19,
+      "name": "Word/DOCX, HTML e Markdown → PDF",
+      "terms": [
+        "word to pdf",
+        "html to pdf",
+        "markdown to pdf"
+      ],
+      "effort": "Muito alto",
+      "reason": "Demanda forte; renderização fiel no navegador não foi demonstrada.",
+      "gate": "Provar suporte a fontes, quebras, tabelas e arquivos reais.",
+      "stage": "Entrega condicionada"
+    },
+    {
+      "rank": 20,
+      "name": "PDF ↔ Excel e planilhas/apresentações → PDF",
+      "terms": [
+        "pdf to excel",
+        "excel to pdf",
+        "ppt to pdf",
+        "pdf to ppt",
+        "csv to excel"
+      ],
+      "effort": "Muito alto",
+      "reason": "Demanda intermediária em vários pares; alto risco de fidelidade e diversidade de arquivos.",
+      "gate": "Prova específica por direção; nenhuma promessa de suporte universal.",
+      "stage": "Entrega condicionada"
+    },
+    {
+      "rank": 21,
+      "name": "Vídeo ↔ GIF, MOV/WebM/MKV → MP4",
+      "terms": [
+        "mp4 to gif",
+        "gif to mp4",
+        "mov to mp4",
+        "webm to mp4",
+        "mkv to mp4",
+        "video compressor"
+      ],
+      "effort": "Alto–muito alto",
+      "reason": "Reaproveita motor de mídia, mas potencial de carga maior que extração de áudio.",
+      "gate": "Testar recodificação, duração, CPU e memória por dispositivo.",
+      "stage": "Após áudio"
+    },
+    {
+      "rank": 22,
+      "name": "RAR/7Z/ZIP",
+      "terms": [
+        "rar to zip",
+        "7z to zip",
+        "extract zip",
+        "zip files"
+      ],
+      "effort": "Médio–alto",
+      "reason": "Família real nos catálogos; frases pequenas inconclusivas na escala usada.",
+      "gate": "Reavaliar demanda; definir limites de expansão, pastas, senhas e arquivos corrompidos.",
+      "stage": "Após nova medição"
+    },
+    {
+      "rank": 23,
+      "name": "Remover fundo",
+      "terms": [
+        "remove background"
+      ],
+      "effort": "Muito alto",
+      "reason": "Demanda elevada, porém recorte amplo e motor/modelo próprio; não é apenas troca de formato.",
+      "gate": "Avaliar modelo, descarga, qualidade, licença e custo local/remoto; sem serviço pago aprovado.",
+      "stage": "Produto adjacente condicionado"
+    },
+    {
+      "rank": 24,
+      "name": "Áudio/vídeo → texto e texto → fala",
+      "terms": [
+        "audio to text",
+        "video to text",
+        "speech to text",
+        "text to speech"
+      ],
+      "effort": "Muito alto",
+      "reason": "Intenções relevantes, mas transcrição e geração têm requisitos diferentes.",
+      "gate": "Modelo, idiomas, qualidade, exportação e custo. API nativa de fala não comprova geração de arquivo de áudio.",
+      "stage": "Produto adjacente condicionado"
+    },
+    {
+      "rank": 25,
+      "name": "Ebooks, CAD, fontes e vetorização",
+      "terms": [
+        "epub to pdf",
+        "pdf to epub",
+        "epub to mobi",
+        "dwg to pdf",
+        "stl to obj",
+        "ttf to woff2",
+        "woff to ttf",
+        "png to svg",
+        "jpg to svg"
+      ],
+      "effort": "Alto–muito alto",
+      "reason": "Exemplos de expansão encontrados em catálogos; custo e demanda por par precisam de investigação própria.",
+      "gate": "PNG→SVG deve vetorizar de verdade, não embutir imagem num SVG. CAD, fontes e livros exigem motores específicos.",
+      "stage": "Especialidades posteriores"
+    },
+    {
+      "rank": 26,
+      "name": "PDF protegido / remover senha",
+      "terms": [
+        "unlock pdf"
+      ],
+      "effort": "Médio–alto",
+      "reason": "Ferramenta encontrada nos concorrentes com procura medida, mas separada do núcleo de organização.",
+      "gate": "Definir o cenário de abertura com senha fornecida e a preservação do arquivo; não prometer recuperar senha desconhecida. Não confundir remover senha com remover conteúdo.",
+      "stage": "Especialidade posterior"
+    },
+    {
+      "rank": null,
+      "name": "YouTube → MP3",
+      "terms": [
+        "youtube to mp3"
+      ],
+      "effort": "Escopo distinto",
+      "reason": "Demanda medida, mas não atende à mesma tarefa de converter um arquivo enviado.",
+      "gate": "Decisão independente do usuário antes de entrar no roadmap.",
+      "stage": "Fora da ordem de conversores locais"
+    }
+  ]
+}

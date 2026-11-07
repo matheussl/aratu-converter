@@ -1,0 +1,482 @@
+{
+  "source": "Google Trends",
+  "queried": "2026-11-03",
+  "method": "Frases exatas; Pesquisa na Web; todas as categorias; médias inteiras exibidas, escalas próprias por gráfico; último ponto pode estar incompleto; dados extraídos de tabelas da interface, não estimativa de volume.",
+  "periods": {
+    "12m": [
+      "2025-11-02",
+      "2026-11-01"
+    ],
+    "5y": [
+      "2021-10-31",
+      "2026-11-01"
+    ]
+  },
+  "groups": [
+    {
+      "id": "global-final",
+      "geo": "WORLD",
+      "terms": ["\"pdf to word\"", "\"jpg to pdf\"", "\"heic to jpg\"", "\"mp4 to mp3\"", "\"youtube to mp3\""],
+      "displayedMeans": [84, 56, 7, 6, 37],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?date=today%2012-m&q=%22pdf%20to%20word%22,%22jpg%20to%20pdf%22,%22heic%20to%20jpg%22,%22mp4%20to%20mp3%22,%22youtube%20to%20mp3%22&hl=en"
+    },
+    {
+      "id": "global-cross",
+      "geo": "WORLD",
+      "terms": [
+        "\"pdf to word\"",
+        "\"jpg to pdf\"",
+        "\"mp4 to mp3\"",
+        "\"png to jpg\"",
+        "\"base64 decode\""
+      ],
+      "displayedMeans": [
+        84,
+        56,
+        6,
+        4,
+        1
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&q=%22pdf%20to%20word%22,%22jpg%20to%20pdf%22,%22mp4%20to%20mp3%22,%22png%20to%20jpg%22,%22base64%20decode%22"
+    },
+    {
+      "id": "global-docs",
+      "geo": "WORLD",
+      "terms": [
+        "\"pdf to word\"",
+        "\"word to pdf\"",
+        "\"pdf to excel\"",
+        "\"pdf to jpg\"",
+        "\"jpg to pdf\""
+      ],
+      "displayedMeans": [
+        84,
+        44,
+        14,
+        38,
+        56
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&q=%22pdf%20to%20word%22,%22word%20to%20pdf%22,%22pdf%20to%20excel%22,%22pdf%20to%20jpg%22,%22jpg%20to%20pdf%22"
+    },
+    {
+      "id": "global-images",
+      "geo": "WORLD",
+      "terms": [
+        "\"png to jpg\"",
+        "\"jpg to png\"",
+        "\"heic to jpg\"",
+        "\"webp to jpg\"",
+        "\"webp to png\""
+      ],
+      "displayedMeans": [
+        23,
+        14,
+        44,
+        22,
+        17
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&q=%22png%20to%20jpg%22,%22jpg%20to%20png%22,%22heic%20to%20jpg%22,%22webp%20to%20jpg%22,%22webp%20to%20png%22"
+    },
+    {
+      "id": "global-media",
+      "geo": "WORLD",
+      "terms": [
+        "\"mp4 to mp3\"",
+        "\"wav to mp3\"",
+        "\"mp3 to wav\"",
+        "\"m4a to mp3\"",
+        "\"mp4 to gif\""
+      ],
+      "displayedMeans": [
+        81,
+        12,
+        12,
+        17,
+        21
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&q=%22mp4%20to%20mp3%22,%22wav%20to%20mp3%22,%22mp3%20to%20wav%22,%22m4a%20to%20mp3%22,%22mp4%20to%20gif%22"
+    },
+    {
+      "id": "global-video-youtube",
+      "geo": "WORLD",
+      "terms": [
+        "\"mp4 to mp3\"",
+        "\"mov to mp4\"",
+        "\"webm to mp4\"",
+        "\"mkv to mp4\"",
+        "\"youtube to mp3\""
+      ],
+      "displayedMeans": [
+        14,
+        4,
+        1,
+        2,
+        81
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&q=%22mp4%20to%20mp3%22,%22mov%20to%20mp4%22,%22webm%20to%20mp4%22,%22mkv%20to%20mp4%22,%22youtube%20to%20mp3%22"
+    },
+    {
+      "id": "global-data",
+      "geo": "WORLD",
+      "terms": [
+        "\"base64 decode\"",
+        "\"base64 encode\"",
+        "\"json to csv\"",
+        "\"binary to decimal\"",
+        "\"ascii to text\""
+      ],
+      "displayedMeans": [
+        70,
+        25,
+        11,
+        34,
+        2
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&q=%22base64%20decode%22,%22base64%20encode%22,%22json%20to%20csv%22,%22binary%20to%20decimal%22,%22ascii%20to%20text%22"
+    },
+    {
+      "id": "br-cross",
+      "geo": "BR",
+      "terms": [
+        "\"pdf para word\"",
+        "\"jpg para pdf\"",
+        "\"mp4 para mp3\"",
+        "\"png para jpg\"",
+        "\"base64 decode\""
+      ],
+      "displayedMeans": [
+        79,
+        26,
+        5,
+        2,
+        1
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&geo=BR&q=%22pdf%20para%20word%22,%22jpg%20para%20pdf%22,%22mp4%20para%20mp3%22,%22png%20para%20jpg%22,%22base64%20decode%22"
+    },
+    {
+      "id": "br-docs",
+      "geo": "BR",
+      "terms": [
+        "\"pdf para word\"",
+        "\"word para pdf\"",
+        "\"pdf para excel\"",
+        "\"pdf para jpg\"",
+        "\"jpg para pdf\""
+      ],
+      "displayedMeans": [
+        79,
+        45,
+        8,
+        15,
+        26
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&geo=BR&q=%22pdf%20para%20word%22,%22word%20para%20pdf%22,%22pdf%20para%20excel%22,%22pdf%20para%20jpg%22,%22jpg%20para%20pdf%22"
+    },
+    {
+      "id": "br-images",
+      "geo": "BR",
+      "terms": [
+        "\"png para jpg\"",
+        "\"jpg para png\"",
+        "\"heic para jpg\"",
+        "\"webp para jpg\"",
+        "\"webp para png\""
+      ],
+      "displayedMeans": [
+        33,
+        22,
+        76,
+        31,
+        26
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&geo=BR&q=%22png%20para%20jpg%22,%22jpg%20para%20png%22,%22heic%20para%20jpg%22,%22webp%20para%20jpg%22,%22webp%20para%20png%22"
+    },
+    {
+      "id": "br-media",
+      "geo": "BR",
+      "terms": [
+        "\"mp4 para mp3\"",
+        "\"wav para mp3\"",
+        "\"m4a para mp3\"",
+        "\"mp4 para gif\"",
+        "\"youtube para mp3\""
+      ],
+      "displayedMeans": [
+        32,
+        5,
+        6,
+        1,
+        72
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&geo=BR&q=%22mp4%20para%20mp3%22,%22wav%20para%20mp3%22,%22m4a%20para%20mp3%22,%22mp4%20para%20gif%22,%22youtube%20para%20mp3%22"
+    },
+    {
+      "id": "br-data",
+      "geo": "BR",
+      "terms": [
+        "\"base64 decode\"",
+        "\"base64 encode\"",
+        "\"json para csv\"",
+        "\"binario para decimal\"",
+        "\"ascii para texto\""
+      ],
+      "displayedMeans": [
+        61,
+        6,
+        0,
+        11,
+        1
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&geo=BR&q=%22base64%20decode%22,%22base64%20encode%22,%22json%20para%20csv%22,%22binario%20para%20decimal%22,%22ascii%20para%20texto%22"
+    },
+    {
+      "id": "global-5y",
+      "geo": "WORLD",
+      "terms": [
+        "\"pdf to word\"",
+        "\"jpg to pdf\"",
+        "\"mp4 to mp3\"",
+        "\"png to jpg\"",
+        "\"base64 decode\""
+      ],
+      "displayedMeans": [
+        79,
+        46,
+        7,
+        3,
+        1
+      ],
+      "date": "today 5-y",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%205-y&q=%22pdf%20to%20word%22,%22jpg%20to%20pdf%22,%22mp4%20to%20mp3%22,%22png%20to%20jpg%22,%22base64%20decode%22"
+    },
+    {
+      "id": "br-5y",
+      "geo": "BR",
+      "terms": [
+        "\"pdf para word\"",
+        "\"jpg para pdf\"",
+        "\"mp4 para mp3\"",
+        "\"png para jpg\"",
+        "\"base64 decode\""
+      ],
+      "displayedMeans": [
+        72,
+        24,
+        5,
+        2,
+        1
+      ],
+      "date": "today 5-y",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%205-y&geo=BR&q=%22pdf%20para%20word%22,%22jpg%20para%20pdf%22,%22mp4%20para%20mp3%22,%22png%20para%20jpg%22,%22base64%20decode%22"
+    },
+    {
+      "id": "global-category",
+      "geo": "WORLD",
+      "terms": [
+        "\"pdf converter\"",
+        "\"image converter\"",
+        "\"audio converter\"",
+        "\"video converter\"",
+        "\"file converter\""
+      ],
+      "displayedMeans": [
+        84,
+        8,
+        9,
+        13,
+        6
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&q=%22pdf%20converter%22,%22image%20converter%22,%22audio%20converter%22,%22video%20converter%22,%22file%20converter%22"
+    },
+    {
+      "id": "br-category",
+      "geo": "BR",
+      "terms": [
+        "\"conversor pdf\"",
+        "\"conversor de imagem\"",
+        "\"conversor de audio\"",
+        "\"conversor de video\"",
+        "\"conversor de arquivos\""
+      ],
+      "displayedMeans": [
+        46,
+        19,
+        25,
+        66,
+        1
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&geo=BR&q=%22conversor%20pdf%22,%22conversor%20de%20imagem%22,%22conversor%20de%20audio%22,%22conversor%20de%20video%22,%22conversor%20de%20arquivos%22"
+    },
+    {
+      "id": "global-data-more",
+      "geo": "WORLD",
+      "terms": [
+        "\"base64 decode\"",
+        "\"hex to decimal\"",
+        "\"decimal to binary\"",
+        "\"json to xml\"",
+        "\"csv to json\""
+      ],
+      "displayedMeans": [
+        70,
+        28,
+        29,
+        4,
+        6
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&q=%22base64%20decode%22,%22hex%20to%20decimal%22,%22decimal%20to%20binary%22,%22json%20to%20xml%22,%22csv%20to%20json%22"
+    },
+    {
+      "id": "global-office",
+      "geo": "WORLD",
+      "terms": [
+        "\"pdf to word\"",
+        "\"excel to pdf\"",
+        "\"ppt to pdf\"",
+        "\"csv to excel\"",
+        "\"epub to pdf\""
+      ],
+      "displayedMeans": [
+        84,
+        8,
+        3,
+        0,
+        1
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&q=%22pdf%20to%20word%22,%22excel%20to%20pdf%22,%22ppt%20to%20pdf%22,%22csv%20to%20excel%22,%22epub%20to%20pdf%22"
+    },
+    {
+      "id": "br-language",
+      "geo": "BR",
+      "terms": [
+        "\"pdf para word\"",
+        "\"pdf to word\"",
+        "\"heic para jpg\"",
+        "\"heic to jpg\"",
+        "\"binário para decimal\""
+      ],
+      "displayedMeans": [
+        80,
+        14,
+        4,
+        4,
+        0
+      ],
+      "date": "today 12-m",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%2012-m&geo=BR&q=%22pdf%20para%20word%22,%22pdf%20to%20word%22,%22heic%20para%20jpg%22,%22heic%20to%20jpg%22,%22bin%C3%A1rio%20para%20decimal%22"
+    },
+    {
+      "id": "global-images-5y",
+      "geo": "WORLD",
+      "terms": [
+        "\"png to jpg\"",
+        "\"jpg to png\"",
+        "\"heic to jpg\"",
+        "\"webp to jpg\"",
+        "\"webp to png\""
+      ],
+      "displayedMeans": [
+        21,
+        15,
+        37,
+        29,
+        21
+      ],
+      "date": "today 5-y",
+      "url": "https://trends.google.com/trends/explore?hl=en&date=today%205-y&q=%22png%20to%20jpg%22,%22jpg%20to%20png%22,%22heic%20to%20jpg%22,%22webp%20to%20jpg%22,%22webp%20to%20png%22"
+    }
+  ],
+  "temporalStats": {
+    "method": "52 pontos completos mais recentes contra 52 anteriores, nas séries de cinco anos; último ponto descartado",
+    "series": [
+      {
+        "scope": "Mundo: comparação central",
+        "terms": [
+          "PDF→Word",
+          "JPG→PDF",
+          "MP4→MP3",
+          "PNG→JPG",
+          "Base64 decode"
+        ],
+        "last52": [
+          76.769,
+          51.192,
+          5.654,
+          3.192,
+          1.019
+        ],
+        "previous52": [
+          89.077,
+          51.596,
+          6.5,
+          3.135,
+          1.5
+        ]
+      },
+      {
+        "scope": "Brasil: comparação central",
+        "terms": [
+          "PDF→Word",
+          "JPG→PDF",
+          "MP4→MP3",
+          "PNG→JPG",
+          "Base64 decode"
+        ],
+        "last52": [
+          74.077,
+          24.231,
+          5.077,
+          1.75,
+          0.962
+        ],
+        "previous52": [
+          83.269,
+          28.327,
+          5.942,
+          1.846,
+          1.115
+        ]
+      },
+      {
+        "scope": "Mundo: imagens",
+        "terms": [
+          "PNG→JPG",
+          "JPG→PNG",
+          "HEIC→JPG",
+          "WebP→JPG",
+          "WebP→PNG"
+        ],
+        "last52": [
+          23.519,
+          13.635,
+          44.135,
+          22.212,
+          17.423
+        ],
+        "previous52": [
+          23.308,
+          16.885,
+          39.404,
+          35.115,
+          27.269
+        ]
+      }
+    ]
+  }
+}

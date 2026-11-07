@@ -1,0 +1,32 @@
+{
+  "name": "aratu-converter",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Ferramentas locais de PDF — Aratu Converter.",
+  "engines": { "node": ">=22.23.4" },
+  "scripts": {
+    "deploy:homologacao": "npm run build && wrangler pages deploy dist --project-name aratu-converter --branch homologacao",
+    "predev": "node scripts/create-test-fixtures.mjs",
+    "dev": "astro dev --host 127.0.0.1 --port 4322",
+    "check": "astro check",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "postinstall": "node scripts/copy-pdf-assets.mjs"
+  },
+  "dependencies": {
+    "astro": "7.4.5",
+    "pdf-lib": "1.17.1",
+    "pdfjs-dist": "6.5.438",
+    "fflate": "0.8.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@types/node": "^22.0.0",
+    "node": "22.23.4",
+    "typescript": "5.9.3",
+    "wrangler": "^4.53.0"
+  }
+}

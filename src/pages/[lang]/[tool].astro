@@ -1,0 +1,9 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Workbench from '../../components/Workbench.astro';
+import {tools,type Lang} from '../../lib/content';
+export function getStaticPaths(){return(['pt','en']as const).flatMap(lang=>tools.map(tool=>({params:{lang,tool:tool.slug[lang]},props:{lang,tool}})));}
+const{lang,tool}=Astro.props as{lang:Lang;tool:typeof tools[number]};
+---
+<Layout lang={lang} title={tool.title[lang]} description={tool.desc[lang]} tool={tool}><Workbench lang={lang} tool={tool}/></Layout>
+
