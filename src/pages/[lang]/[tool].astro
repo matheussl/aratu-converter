@@ -1,9 +1,27 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ReducePdfGuide from '../../components/ReducePdfGuide.astro';
 import Workbench from '../../components/Workbench.astro';
-import {tools,type Lang} from '../../lib/content';
-export function getStaticPaths(){return(['pt','en']as const).flatMap(lang=>tools.map(tool=>({params:{lang,tool:tool.slug[lang]},props:{lang,tool}})));}
-const{lang,tool}=Astro.props as{lang:Lang;tool:typeof tools[number]};
+import { languages, pick, reducePdfGuide, tools, type Lang } from '../../lib/content';
+
+type Props = { lang: Lang; tool: typeof tools[number] | null };
+export function getStaticPaths() {
+  return languages.flatMap(lang => [
+    ...tools.map(tool => ({ params: { lang, tool: tool.slug[lang] }, props: { lang, tool } })),
+    { params: { lang, tool: reducePdfGuide.slug[lang] }, props: { lang, tool: null } },
+  ]);
+}
+
+const { lang, tool } = Astro.props;
+const page = tool ?? reducePdfGuide;
+const title = tool?.id === 'word'
+  ? pick(lang, 'Converter PDF para Word online grátis', 'Convert PDF to Word online for free')
+  : tool ? page.title[lang] + pick(lang, ' online grátis', ' online for free') : page.title[lang];
+const description = tool?.id === 'word'
+  ? pick(lang, 'Converta PDF para Word (.docx) no navegador e edite o texto de PDFs digitais. Grátis, sem cadastro e sem enviar seu arquivo.', 'Convert PDF to Word (.docx) in your browser and edit text from digital PDFs. Free, with no sign-up or file uploads.')
+  : tool?.desc[lang] ?? pick(lang, 'Veja como diminuir o tamanho de um PDF para enviar por e-mail ou anexar a um formulário. Escolha um método e confira a legibilidade.', 'Learn how to make a PDF smaller for email or a form. Choose a method and check that the result remains readable.');
 ---
-<Layout lang={lang} title={tool.title[lang]} description={tool.desc[lang]} tool={tool}><Workbench lang={lang} tool={tool}/></Layout>
+<Layout lang={lang} title={title} description={description} page={page}>
+  {tool ? <Workbench lang={lang} tool={tool}/> : <ReducePdfGuide lang={lang}/>}
+</Layout>
 

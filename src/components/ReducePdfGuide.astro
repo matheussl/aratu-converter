@@ -1,0 +1,39 @@
+---
+import { href, pick, reducePdfGuide, tools, type Lang } from '../lib/content';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+<article class="container">
+  <header class="work-heading">
+    <h1>{reducePdfGuide.title[lang]}</h1>
+    <p>{pick(lang,'Seu PDF passou do limite de um e-mail ou formulário? Escolha o método pelo tipo de documento e pelas páginas que você precisa enviar.','Is your PDF too large for an email or form? Choose a method based on the document and the pages you need to send.')}</p>
+  </header>
+  <div class="how-section">
+    <div class="section-heading"><h2>{pick(lang,'Escolha pelo tipo de PDF','Choose a method for your PDF')}</h2></div>
+    <div class="how-grid">
+      <article>
+        <h3>{pick(lang,'Você só precisa de algumas páginas','You only need a few pages')}</h3>
+        <p>{pick(lang,'Se o destino pede só um trecho, extraia as páginas necessárias. Por exemplo, use 2-4 para separar três páginas de um relatório. Isso cria um novo PDF com as páginas escolhidas.','If you only need an excerpt, extract the necessary pages. For example, enter 2-4 to keep three pages of a report. This creates a new PDF with the selected pages.')}</p>
+      </article>
+      <article>
+        <h3>{pick(lang,'O PDF veio de uma digitalização','The PDF is a scan')}</h3>
+        <p>{pick(lang,'Experimente digitalizar novamente com resolução menor. Para texto preto no branco, teste tons de cinza se a cor for dispensável. Confira letras pequenas, carimbos e códigos antes de enviar.','Try scanning again at a lower resolution. For black-and-white text, try grayscale if color is optional. Check small text, stamps and codes before sending.')}</p>
+      </article>
+      <article>
+        <h3>{pick(lang,'Você tem o arquivo original','You have the original document')}</h3>
+        <p>{pick(lang,'Abra o arquivo no editor de origem e procure a opção de exportar PDF com tamanho reduzido. Se ele tiver fotos grandes, reduza a resolução das fotos antes de exportar.','Open the source document in its editor and look for a reduced-size PDF export option. If it contains large photos, reduce their resolution before exporting.')}</p>
+      </article>
+    </div>
+  </div>
+  <section class="aside-note">
+    <h2>{pick(lang,'Como conferir se ficou abaixo de 1 MB?','How do I check if the PDF is under 1 MB?')}</h2>
+    <p>{pick(lang,'Confira o tamanho nas propriedades do arquivo baixado e compare com o limite informado pelo destino. Abra a cópia e revise todas as páginas que precisa enviar. Preserve o original, especialmente se tiver assinatura digital.','Check the downloaded file’s properties against the destination’s size limit. Open the copy and review the pages you need to submit. Keep the original, especially if it has a digital signature.')}</p>
+  </section>
+  <section class="more-tools">
+    <h2>{pick(lang,'Precisa enviar apenas parte do documento?','Only need to send part of the document?')}</h2>
+    <div><a href={href(lang, tools[2])}>{pick(lang,'Extrair páginas de um PDF','Extract pages from a PDF')} <span aria-hidden="true">↗</span></a></div>
+  </section>
+</article>
+<style>
+  .aside-note p { margin-top: 10px; max-width: 72ch; line-height: 1.7; color: var(--muted); }
+</style>

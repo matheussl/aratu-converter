@@ -1,18 +1,40 @@
 ---
 import '../styles/global.css';
-import {href,pick,tools,type Lang} from '../lib/content';
-interface Props {lang:Lang;title:string;description:string;tool?:typeof tools[number]}
-const{lang,title,description,tool}=Astro.props;
+import {href,languageTag,languages,pick,type Lang} from '../lib/content';
+import {isIndexable} from '../lib/seo';
+interface Props {lang:Lang;title:string;description:string;page?:{slug:Record<Lang,string>};noindex?:boolean}
+const{lang,title,description,page,noindex=false}=Astro.props;
 const other=lang==='pt'?'en':'pt';
-const isProduction=import.meta.env.PUBLIC_DEPLOY_ENV==='production';
+const site=Astro.site;
+const canIndex=isIndexable&&!noindex;
+const isProduction=isIndexable;
 const gaId=import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 const adsenseId=import.meta.env.PUBLIC_ADSENSE_CLIENT_ID;
 const cfToken=import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
+const canonical=site ? new URL(href(lang,page),site).href : undefined;
 ---
-<!doctype html><html lang={lang==='pt'?'pt-BR':'en'}>
-<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="description" content={description}/>{!isProduction&&<meta name="robots" content="noindex,nofollow"/>}<meta name="theme-color" content="#173e40"/>{adsenseId&&<meta name="google-adsense-account" content={adsenseId}/>}<title>{title} · Aratu Converter</title>
+<!doctype html><html lang={languageTag[lang]}>
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="description" content={description}/>
+{!canIndex && <meta name="robots" content="noindex"/>}
+{canIndex && site && <>
+  <link rel="canonical" href={canonical}/>
+  <link rel="alternate" hreflang="x-default" href={new URL(href('pt',page),site).href}/>
+  <meta property="og:url" content={canonical}/>
+  {languages.map(locale => <link rel="alternate" hreflang={languageTag[locale]} href={new URL(href(locale,page),site).href}/>)}
+</>}
+<meta property="og:type" content="website"/><meta property="og:title" content={title+' · Aratu Converter'}/><meta property="og:description" content={description}/><meta property="og:locale" content={lang==='pt'?'pt_BR':'en_US'}/><meta name="theme-color" content="#173e40"/>{adsenseId&&<meta name="google-adsense-account" content={adsenseId}/>}<title>{title} · Aratu Converter</title>
 {isProduction&&gaId&&<script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
-{isProduction&&gaId&&<script is:inline define:vars={{gaId}}>{`window.dataLayer=window.dataLayer||[];function gtag(){window.dataLayer.push(arguments)}gtag('js',new Date());gtag('config',gaId,{allow_google_signals:false,allow_ad_personalization_signals:false});`}</script>}
+{isProduction&&gaId&&<script is:inline define:vars={{gaId}}>if (location.hostname === 'aratuconverter.com') {
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', gaId, {
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false,
+    page_location: location.origin + location.pathname,
+    page_referrer: document.referrer ? (() => { try { const url = new URL(document.referrer); return url.origin + url.pathname; } catch { return ''; } })() : '',
+  });
+}</script>}
 {isProduction&&cfToken&&<script is:inline data-cf-beacon={JSON.stringify({token:cfToken})} src="https://static.cloudflareinsights.com/beacon.min.js" defer></script>}
 </head>
 <body>
@@ -21,7 +43,7 @@ const cfToken=import.meta.env.PUBLIC_CF_WEB_ANALYTICS_TOKEN;
 <a class="brand" href={href(lang)} aria-label="Aratu Converter">
 <svg class="brand-mark" viewBox="0 0 44 44" width="42" height="42" fill="none" aria-hidden="true"><rect width="44" height="44" rx="13" fill="#173e40"/><path d="M14 23c0-5 16-5 16 0v5H14z" fill="#fff5e7"/><path d="M17 20v-4m10 4v-4M13 25l-5-4m5 7-5 3m23-6 5-4m-5 7 5 3M12 21l-2-7 4-3m18 10 2-7-4-3" stroke="#ef8d72" stroke-width="2.5" stroke-linecap="round"/><circle cx="17" cy="15" r="2" fill="#fff5e7"/><circle cx="27" cy="15" r="2" fill="#fff5e7"/></svg>
 <span><b>aratu<span class="brand-dot">.</span></b><small>CONVERTER</small></span></a>
-<nav aria-label={pick(lang,'Navegação principal','Main navigation')}><a class="nav-tools" href={href(lang)+'#tools'}>{pick(lang,'Ferramentas','Tools')}</a><a class="nav-how" href={href(lang)+'#how'}>{pick(lang,'Como funciona','How it works')}</a><a class="language" href={href(other,tool)} lang={other==='pt'?'pt-BR':'en'}>{lang==='pt'?'EN':'PT'} <span aria-hidden="true">↗</span></a></nav>
+<nav aria-label={pick(lang,'Navegação principal','Main navigation')}><a class="nav-tools" href={href(lang)+'#tools'}>{pick(lang,'Ferramentas','Tools')}</a><a class="nav-how" href={href(lang)+'#how'}>{pick(lang,'Como funciona','How it works')}</a><a class="language" href={href(other,page)} lang={languageTag[other]}>{lang==='pt'?'EN':'PT'} <span aria-hidden="true">↗</span></a></nav>
 </div></header>
 <main id="main"><slot/></main>
 <footer class="footer container"><a href={href(lang)} class="footer-brand">aratu.</a><p>{pick(lang,'Feito para simplificar. Inspirado no nosso mangue.','Made to simplify. Inspired by our mangroves.')}</p><span>{pick(lang,'Versão inicial · Processamento local','Early version · Local processing')}</span></footer>

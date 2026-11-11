@@ -1,3 +1,4 @@
+import { trackConversion } from '../lib/analytics';
 import { LIMITS, PdfError, parseRange, validateFiles, kind, type Tool, type Input, type Output } from '../lib/pdf-common';
 import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { pdfToWord } from '../lib/word';
@@ -174,7 +175,7 @@ function mount(root:HTMLElement){
    }
    if(id!==job)return;
    resultUrl=URL.createObjectURL(blob(output.bytes,output.mime));const link=q<HTMLAnchorElement>('[data-download]');link.href=resultUrl;link.download=output.name;
-   q('[data-result-info]').textContent=output.name+' · '+formatSize(output.bytes.length);result.hidden=false;announce(t('Resultado pronto para baixar.','Your result is ready to download.'));result.scrollIntoView({behavior:'smooth',block:'nearest'});
+   q('[data-result-info]').textContent=output.name+' · '+formatSize(output.bytes.length);result.hidden=false;trackConversion(tool,en?'en':'pt');announce(t('Resultado pronto para baixar.','Your result is ready to download.'));result.scrollIntoView({behavior:'smooth',block:'nearest'});
   }catch(e){if(id===job)showError(e);}
   finally{if(id===job){busy=false;q('[data-progress]').hidden=true;update();}}
  });

@@ -28,8 +28,49 @@ const{lang,tool}=Astro.props;const image=tool.id==='images',single=tool.id==='sp
 <section class="result" data-result hidden aria-live="polite"><span class="success-icon"><Icon name="check" size={25}/></span><div><h2>{pick(lang,'Pronto. Do seu jeito.','Done. Your way.')}</h2><p data-result-info></p><a class="primary download-button" data-download>{pick(lang,'Baixar resultado','Download result')} ↓</a></div></section>
 <div class="sr-only" role="status" aria-live="polite" data-live></div>
 </section>
-<aside class="work-aside"><div class="aside-note"><span class="eyebrow">{pick(lang,'BOM SABER','GOOD TO KNOW')}</span><h2>{pick(lang,'Um passo de cada vez.','One step at a time.')}</h2><ol><li>{pick(lang,'Escolha seus arquivos.','Choose your files.')}</li><li>{single?pick(lang,'Selecione as páginas e ajuste as opções.','Select pages and adjust options.'):pick(lang,'Organize a ordem com as setas.','Arrange the order with the arrows.')}</li><li>{pick(lang,'Processe e baixe o resultado.','Process and download your result.')}</li></ol></div><div class="aside-limits"><h3>{pick(lang,'Limites desta versão','Limits in this version')}</h3><p>{pick(lang,'20 MB por arquivo · 50 MB no total. Até 20 arquivos e 200 páginas de PDF por operação.','20 MB per file · 50 MB total. Up to 20 files and 200 PDF pages per operation.')}</p>{tool.id==='export'&&<p>{pick(lang,'Exporte até 50 páginas por vez. Várias imagens são entregues em ZIP.','Export up to 50 pages at a time. Multiple images are delivered in a ZIP.')}</p>}<p>{pick(lang,'PDFs com senha não são aceitos. Formulários, anexos e assinaturas podem não ser preservados nas cópias.','Password-protected PDFs are not supported. Forms, attachments and signatures may not be preserved in copies.')}</p></div></aside>
+<aside class="work-aside">
+  <div class="aside-note">
+    <span class="eyebrow">{pick(lang,'BOM SABER','GOOD TO KNOW')}</span>
+    <h2>{tool.id==='word'?pick(lang,'Como converter PDF para Word','How to convert PDF to Word'):pick(lang,'Um passo de cada vez.','One step at a time.')}</h2>
+    {tool.id==='word' ? <ol>
+      <li>{pick(lang,'Selecione um PDF. Para editar o texto, prefira um arquivo em que já seja possível selecionar palavras.','Select a PDF. For editable text, choose a file where you can already select words.')}</li>
+      <li>{pick(lang,'Clique em Converter para Word. O arquivo é processado no navegador.','Click Convert to Word. Your file is processed in your browser.')}</li>
+      <li>{pick(lang,'Baixe o .docx e revise a formatação no Word.','Download the .docx and check the formatting in Word.')}</li>
+    </ol> : <ol>
+      <li>{pick(lang,'Escolha seus arquivos.','Choose your files.')}</li>
+      <li>{single?pick(lang,'Selecione as páginas e ajuste as opções.','Select pages and adjust options.'):pick(lang,'Organize a ordem com as setas.','Arrange the order with the arrows.')}</li>
+      <li>{pick(lang,'Processe e baixe o resultado.','Process and download your result.')}</li>
+    </ol>}
+  </div>
+  <div class="aside-limits">
+    <h3>{pick(lang,'Limites desta versão','Limits in this version')}</h3>
+    <p>{single?pick(lang,'Um PDF por vez, com até 20 MB e 200 páginas.','One PDF at a time, up to 20 MB and 200 pages.'):pick(lang,'20 MB por arquivo · 50 MB no total. Até 20 arquivos e 200 páginas de PDF por operação.','20 MB per file · 50 MB total. Up to 20 files and 200 PDF pages per operation.')}</p>
+    {tool.id==='export'&&<p>{pick(lang,'Exporte até 50 páginas por vez. Várias imagens são entregues em ZIP.','Export up to 50 pages at a time. Multiple images are delivered in a ZIP.')}</p>}
+    <p>{pick(lang,'PDFs com senha não são aceitos. Formulários, anexos e assinaturas podem não ser preservados nas cópias.','Password-protected PDFs are not supported. Forms, attachments and signatures may not be preserved in copies.')}</p>
+  </div>
+</aside>
 </div>
+{tool.id==='word' && <section class="word-guide container">
+  <h2>{pick(lang,'O que esperar do Word convertido','What to expect from the Word file')}</h2>
+  <div class="how-grid">
+    <article>
+      <h3>{pick(lang,'O texto fica editável?','Will the text be editable?')}</h3>
+      <p>{pick(lang,'Sim, quando o PDF contém uma camada de texto. O conversor extrai esse conteúdo para um arquivo .docx.','Yes, when the PDF has a text layer. The converter extracts that content into a .docx file.')}</p>
+    </article>
+    <article>
+      <h3>{pick(lang,'Funciona com PDF escaneado?','Does it work with scans?')}</h3>
+      <p>{pick(lang,'Páginas sem texto são inseridas como imagens no Word. Para editar palavras de um escaneamento, primeiro é preciso reconhecer o texto com OCR.','Pages without text are inserted as images in Word. Editing words from a scan requires recognizing the text with OCR first.')}</p>
+    </article>
+    <article>
+      <h3>{pick(lang,'A formatação fica igual?','Will the formatting stay the same?')}</h3>
+      <p>{pick(lang,'O resultado funciona melhor com texto simples. Revise colunas, tabelas, fontes e imagens, que podem mudar ou ficar de fora.','The result works best with simple text. Check columns, tables, fonts and images, which may change or be omitted.')}</p>
+    </article>
+  </div>
+</section>}
 <section class="more-tools container"><h2>{pick(lang,'Mais uma coisa para resolver?','One more thing to do?')}</h2><div>{tools.filter(t=>t.id!==tool.id).map(t=><a href={href(lang,t)}><Icon name={t.icon} size={18}/>{t.title[lang]}<span>↗</span></a>)}</div></section>
 <script>import '../scripts/workbench';</script>
+<style>
+  .word-guide { margin-top: 38px; }
+  .word-guide h2 { font-size: 1.35rem; }
+</style>
 

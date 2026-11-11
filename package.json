@@ -16,7 +16,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
-    "postinstall": "node scripts/copy-pdf-assets.mjs"
+    "postinstall": "node scripts/copy-pdf-assets.mjs",
+    "check:seo": "node scripts/check-seo.mjs"
   },
   "dependencies": {
     "astro": "7.4.5",
