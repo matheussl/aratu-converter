@@ -19,7 +19,7 @@ Após publicar, inspecionar as três URLs de produção e enviar `/sitemap.xml` 
 
 Produção auditada antes desta correção: commit 82f32e6; homologação: f8c1fd8. PDF para Word e os ajustes SEO locais ainda não estavam em produção. URLs inexistentes, robots.txt e ads.txt retornavam a home com 200; canonicals ausentes. A tag GA4 carregava, mas sua inicialização era uma string não executada.
 
-Correções: domínio padrão aratuconverter.com; trailingSlash always; canonical, hreflang pt-BR/en/x-default e Open Graph; 14 URLs no sitemap (duas homes, cinco ferramentas e um guia em dois idiomas); robots válido; 404 noindex; ads.txt do cliente já configurado; 301 nas URLs sem barra. O domínio padrão pages.dev redireciona para o domínio próprio, preservando a prévia homologacao.
+Correções: domínio padrão aratuconverter.com; trailingSlash always; canonical, hreflang pt-BR/en/x-default e Open Graph; 14 URLs no sitemap (duas homes, cinco ferramentas e um guia em dois idiomas); robots válido; 404 noindex; ads.txt do cliente já configurado; 301 nas URLs sem barra. O domínio padrão pages.dev aponta canonical para o domínio próprio e recebe X-Robots-Tag: noindex. Redirecionar esse hostname exige regra no painel Cloudflare; o Pages não aceita redirects por domínio em _redirects. A prévia homologacao mantém seu noindex.
 
 GA4: G-N537RC2ESS, apenas em produção no domínio próprio. Inicialização corrigida e page_location/page_referrer sem query strings. Evento conversion_complete somente após resultado válido, com tool e language de listas fixas; sem nomes, conteúdo, caminhos ou tamanho de arquivos. Verificação da execução da inicialização em ambiente isolado, sem gerar tráfego artificial no GA4.
 
